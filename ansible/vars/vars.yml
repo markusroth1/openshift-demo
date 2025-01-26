@@ -1,0 +1,14 @@
+---
+#### Cluster Vars
+ocp4_cluster_name: 'rm2'
+ocp4_base_domain: 'thpm.p1.openshiftapps.com'
+ocp4_api_url: 'https://api.{{ ocp4_cluster_name }}.{{ ocp4_base_domain }}:6443'
+
+openshift_verify_ssl: false
+#### Authentication on the ocp cluster
+ocp4_sandbox: true    # when deploying on a Red Hat ocp sandbox -> true
+ocp4_user: ''
+ocp4_password: ''
+ocp4_api_token: 'sha256~hGMV9NP-gWW5H7j40DJCck7Eztt0os0j2srt2p3LJKw'
+project_name: 'markus-roth-dev'
+image_repo: 'quay.io/markus_roth/openshift-demo'

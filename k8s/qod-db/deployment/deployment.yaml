@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: qod-db
-          image: quay.io/markus_roth/openshift-demo/qod-db
+          image: quay.io/markus_roth/openshift-demo/qod-db:1.1.0
           imagePullPolicy: Always
           ports:
             - name: mysql

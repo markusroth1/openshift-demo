@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: qod-web
-          image: quay.io/markus_roth/openshift-demo/qod-web
+          image: quay.io/markus_roth/openshift-demo/qod-web:1.1.0
           imagePullPolicy: Always
           ports:
             - name: http
