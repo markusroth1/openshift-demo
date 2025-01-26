@@ -3,7 +3,7 @@
   hosts: localhost
   vars_files:
     - vars/vars.yml
-  
+
   tasks:
 
     - name: Ensure an access token is retrieved for the admin user if no API token is defined in vars.yaml
@@ -16,7 +16,7 @@
       when: ocp4_api_token is undefined or ocp4_api_token == ""
 
     - name: Set the API key from auth_results or predefined token
-      set_fact:
+      ansible.builtin.set_fact:
         api_key: >-
           {{ auth_results.token
           if (auth_results is defined and 'token' in auth_results)
@@ -28,7 +28,7 @@
   connection: local
   vars_files:
     - vars/vars.yml
-  
+
   module_defaults:
     group/community.okd.okd:
       namespace: openshift-config
@@ -107,7 +107,7 @@
               - name: mysql
                 port: 3306
                 targetPort: 3306
-                protocol: TCP 
+                protocol: TCP
             selector:
               app: qod-db
 
@@ -203,7 +203,7 @@
               spec:
                 containers:
                   - name: qod-web
-                    image: quay.io/markus_roth/openshift-demo/qod-web:1.1.0
+                    image: "{{ image_repo }}/qod-web:1.1.0"
                     imagePullPolicy: Always
                     ports:
                       - name: http
@@ -246,7 +246,6 @@
           metadata:
             namespace: "{{ project_name }}"
             name: qod
-            namespace: markus-roth-dev
           spec:
             path: /
             to:
